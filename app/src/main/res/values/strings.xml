@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Crocodile</string>
+
+
+    <string name="level">Уровень</string>
+    <string name="rate">Рейтинг</string>
+    <string name="button_level">Результат</string>
+
+    <string name="some_error">Ошибка!!!</string>
+    <string name="empty_response">Ничего нет</string>
+
+</resources>
