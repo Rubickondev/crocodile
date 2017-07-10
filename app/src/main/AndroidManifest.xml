@@ -12,17 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".screen.MainActivity">
+
+        </activity>
+        <activity
+            android:name=".screen.phrase.PhraseActivity"
+            android:parentActivityName=".screen.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".screen.MainActivity" />
+        </activity>
+
+
+        <activity
+            android:name=".screen.SplashScreenActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".screen.phrase.PhraseActivity"
-            android:parentActivityName=".screen.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".screen.MainActivity" />
         </activity>
     </application>
 

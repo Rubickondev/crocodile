@@ -9,5 +9,6 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="error_text_color">#FF5722</color>
+    <color name="splash_screen_bg">#7CB342</color>
 </resources>
 
