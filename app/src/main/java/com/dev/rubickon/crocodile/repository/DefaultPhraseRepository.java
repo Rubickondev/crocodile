@@ -16,7 +16,7 @@ public class DefaultPhraseRepository implements PhraseRepository{
 
 
     @Override
-    public Observable<List<Phrase>> phrases(int level) {
+    public Observable<List<Phrase>> phrases(String level) {
         return ApiFactory.getPhraseService()
                 .getPhrases(level)
                 .compose(RxUtils.async());

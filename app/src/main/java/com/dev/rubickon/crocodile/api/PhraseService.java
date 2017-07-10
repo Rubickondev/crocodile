@@ -17,7 +17,7 @@ public interface PhraseService {
 
 
     @GET("selectPhrases/{level}")
-    Observable<List<Phrase>> getPhrases(@Path("level") int level);
+    Observable<List<Phrase>> getPhrases(@Path("level") String level);
 
 
 }

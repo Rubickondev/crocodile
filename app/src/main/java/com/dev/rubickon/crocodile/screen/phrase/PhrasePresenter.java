@@ -21,7 +21,7 @@ public class PhrasePresenter {
 
 
 
-    public void init(int level) {
+    public void init(String level) {
         RepositoryProvider.providePhraseRepository()
                 .phrases(level)
                 .subscribe(mView::showItems, throwable -> mView.showError(throwable));

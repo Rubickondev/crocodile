@@ -12,6 +12,6 @@ import io.reactivex.Observable;
 
 public interface PhraseRepository {
 
-    Observable<List<Phrase>> phrases(int level);
+    Observable<List<Phrase>> phrases(String level);
 
 }

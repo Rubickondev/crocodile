@@ -3,6 +3,7 @@ package com.dev.rubickon.crocodile.screen;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -17,10 +18,8 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.et_level)
-    EditText mEtLevel;
-    @BindView(R.id.btn_level)
-    Button mBtLevel;
+    @BindView(R.id.et_level) EditText mEtLevel;
+    @BindView(R.id.btn_level) Button mBtLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +28,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_level)
     public void result(){
-        int level = Integer.parseInt(mEtLevel.getText().toString());
+        String level = mEtLevel.getText().toString();
         Intent intent = new Intent(getApplicationContext(), PhraseActivity.class);
         intent.putExtra(Constants.LEVEL_EXTRAS, level);
         startActivity(intent);
