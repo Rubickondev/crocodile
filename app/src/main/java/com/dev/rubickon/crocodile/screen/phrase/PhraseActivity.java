@@ -42,7 +42,7 @@ public class PhraseActivity extends AppCompatActivity implements CommonListView<
         ButterKnife.bind(this);
         presenter = new PhrasePresenter(this);
         initRecycler();
-        int level = getIntent().getIntExtra(Constants.LEVEL_EXTRAS, 0);
+        String level = getIntent().getStringExtra(Constants.LEVEL_EXTRAS);
         presenter.init(level);
 
     }
