@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Crocodile</string>
-
+    <string name="app_name_ru">Крокодил</string>
 
     <string name="level">Уровень</string>
     <string name="rate">Рейтинг</string>
@@ -8,6 +8,20 @@
 
     <string name="some_error">Ошибка!!!</string>
     <string name="empty_response">Ничего нет</string>
+    <string name="empty"></string>
+
+    <!--menu-->
+    <string name="menu_single_play">Обычная игра</string>
+    <string name="menu_time_play">На время</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_rules">Правила</string>
+    <string name="menu_dev">О приложении</string>
+    <string name="menu_exit">Выход</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+
+    <string name="action_settings">Settings</string>
 
     <!-- Activity Main -->
 

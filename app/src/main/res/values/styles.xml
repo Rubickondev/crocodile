@@ -12,7 +12,7 @@
 
     <style name="ButtonColor" parent="@style/Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@color/icons</item>
-        <item name="android:textSize">@dimen/text.15</item>
+        <item name="android:textSize">@dimen/text.16</item>
         <item name="colorButtonNormal">@color/accent</item>
     </style>
 
@@ -20,11 +20,20 @@
         <item name="android:windowBackground">@drawable/splash_screen_theme</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <!--<item name="android:windowFullscreen">true</item>-->
-        <!--<item name="android:windowContentOverlay">@null</item>-->
+
+
+    <style name="NavigationDrawerStyle">
+        <item name="android:textSize">@dimen/text.18</item>
+        <item name="android:fontFamily">@font/croco</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
