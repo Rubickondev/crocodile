@@ -16,8 +16,11 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseActivity {
 
 
-    @BindView(R.id.et_level) EditText mEtLevel;
-    @BindView(R.id.btn_level) Button mBtLevel;
+//    @BindView(R.id.et_level)
+//    EditText mEtLevel;
+//    @BindView(R.id.btn_level)
+//    Button mBtLevel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +30,14 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
+
+//    @OnClick(R.id.btn_level)
     public void result(){
-        String level = mEtLevel.getText().toString();
-        Intent intent = new Intent(getApplicationContext(), PhraseActivity.class);
-        intent.putExtra(Constants.LEVEL_EXTRAS, level);
-        startActivity(intent);
+//        int level = Integer.parseInt(mEtLevel.getText().toString());
+//        Intent intent = new Intent(getApplicationContext(), PhraseActivity.class);
+//        intent.putExtra(Constants.LEVEL_EXTRAS, level);
+//        startActivity(intent);
+
 
     }
 }
