@@ -9,4 +9,14 @@
     <string name="some_error">Ошибка!!!</string>
     <string name="empty_response">Ничего нет</string>
 
+    <!-- Activity Main -->
+
+    <string name="title">Крокодил</string>
+    <string name="select_level">Выберте сложность</string>
+    <string name="btn_title_hard">Мозговыносяще</string>
+    <string name="btn_title_medium">Терпимо</string>
+    <string name="btn_title_easy">Легко</string>
+
+    <!-- End Activity Main  -->
+
 </resources>

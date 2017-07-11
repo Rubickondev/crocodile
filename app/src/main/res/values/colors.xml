@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#009688</color>
-    <color name="primary_dark">#00796B</color>
+    <color name="primary">#8BC34A</color>
+    <color name="primary_dark">#74a43d</color>
     <color name="primary_light">#B2DFDB</color>
     <color name="accent">#FF9800</color>
     <color name="primary_text">#212121</color>
@@ -9,5 +9,15 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="error_text_color">#FF5722</color>
+    <color name="splash_screen_bg">#8BC34A</color>
+    <color name="main_green">#8BC34A</color>
+
+    <!-- Activity Main -->
+
+    <color name="btn_text_color">#FFFFFF</color>
+    <color name="title_color">#ffffff</color>
+
+    <!-- End Activity Main -->
+
 </resources>
 
