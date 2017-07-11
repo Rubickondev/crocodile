@@ -16,25 +16,25 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    @BindView(R.id.et_level)
-    EditText mEtLevel;
-    @BindView(R.id.btn_level)
-    Button mBtLevel;
+//
+//    @BindView(R.id.et_level)
+//    EditText mEtLevel;
+//    @BindView(R.id.btn_level)
+//    Button mBtLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_level)
+//    @OnClick(R.id.btn_level)
     public void result(){
-        int level = Integer.parseInt(mEtLevel.getText().toString());
-        Intent intent = new Intent(getApplicationContext(), PhraseActivity.class);
-        intent.putExtra(Constants.LEVEL_EXTRAS, level);
-        startActivity(intent);
+//        int level = Integer.parseInt(mEtLevel.getText().toString());
+//        Intent intent = new Intent(getApplicationContext(), PhraseActivity.class);
+//        intent.putExtra(Constants.LEVEL_EXTRAS, level);
+//        startActivity(intent);
 
     }
 }
