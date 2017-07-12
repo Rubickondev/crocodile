@@ -22,10 +22,10 @@
 
 
 
-    <style name="NavigationDrawerStyle">
-        <item name="android:textSize">@dimen/text.18</item>
-        <item name="android:fontFamily">@font/croco</item>
-    </style>
+    <!--<style name="NavigationDrawerStyle">-->
+        <!--<item name="android:textSize">@dimen/text.18</item>-->
+        <!--<item name="android:fontFamily">@font/croco</item>-->
+    <!--</style>-->
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
