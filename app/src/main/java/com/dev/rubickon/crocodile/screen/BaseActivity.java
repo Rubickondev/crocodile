@@ -2,23 +2,28 @@ package com.dev.rubickon.crocodile.screen;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.style.TypefaceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 import com.dev.rubickon.crocodile.R;
+import com.dev.rubickon.crocodile.utils.CustomTypefaceSpan;
 
 /**
  * Created by DNS1 on 10.07.2017.
@@ -82,31 +87,37 @@ public class BaseActivity extends AppCompatActivity {
             }
             return true;
         });
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/round_script.ttf");
         View header = mNavigationView.getHeaderView(0);
-        final TextView tv_title = (TextView) header.findViewById(R.id.tv_main_title);
-        tv_title.setTypeface(font);
-        Menu m = mNavigationView .getMenu();
-        for (int i=0;i<m.size();i++) {
-            MenuItem mi = m.getItem(i);
-            SubMenu subMenu = mi.getSubMenu();
-            if (subMenu!=null && subMenu.size() >0 ) {
-                for (int j=0; j <subMenu.size();j++) {
-                    MenuItem subMenuItem = subMenu.getItem(j);
-                    SpannableString s = new SpannableString(subMenuItem.getTitle());
-                    s.setSpan(new TypefaceSpan("fonts/round_script.ttf"), 0, s.length(),
-                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    subMenuItem.setTitle(s);
-                }
-            }
-        }
+        final TextView tv_title = (TextView) header.findViewById(R.id.tv_nav_title);
+        setFontToTextView(tv_title);
+        setFontToMenu(mNavigationView.getMenu());
+        setActionBar(mToolbar);
+    }
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, mToolbar,
+    protected void setActionBar(Toolbar toolbar) {
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, toolbar,
                 R.string.drawer_open, R.string.drawer_close);
         mDrawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+        setActionBarTitle(getResources().getString(R.string.app_name_ru));
     }
 
+    protected void setFontToTextView(TextView textView) {
+        Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_default));
+        textView.setTypeface(font);
+    }
+
+    protected void setActionBarTitle(String title){
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+            ActionBar bar = getSupportActionBar();
+            Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_default));
+            SpannableStringBuilder s = new SpannableStringBuilder(bar.getTitle());
+            s.setSpan(new CustomTypefaceSpan(font), 0, s.length(),
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+            bar.setTitle(s);
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -116,6 +127,30 @@ public class BaseActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+
+    private void setFontToMenu(Menu m){
+        for (int i = 0; i < m.size(); i++) {
+            MenuItem mi = m.getItem(i);
+            SubMenu subMenu = mi.getSubMenu();
+            if (subMenu != null && subMenu.size() > 0) {
+                for (int j = 0; j < subMenu.size(); j++) {
+                    MenuItem subMenuItem = subMenu.getItem(j);
+                    setFontToMenuItem(subMenuItem);
+                }
+            }
+            setFontToMenuItem(mi);
+        }
+    }
+
+    private void setFontToMenuItem(MenuItem item){
+        Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_default));
+        SpannableStringBuilder s = new SpannableStringBuilder(item.getTitle());
+        s.setSpan(new CustomTypefaceSpan(font), 0, s.length(),
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        item.setTitle(s);
+    }
+
 
 
 }

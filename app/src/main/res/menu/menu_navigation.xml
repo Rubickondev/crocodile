@@ -10,13 +10,17 @@
             android:icon="@drawable/ic_timer_black_24dp"
             android:title="@string/menu_time_play" />
         <item
-            android:id="@+id/menu_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="@string/menu_settings" />
+            android:id="@+id/menu_send"
+            android:icon="@drawable/ic_cloud_upload_black_24dp"
+            android:title="@string/menu_send" />
         <item
             android:id="@+id/menu_rules"
             android:icon="@drawable/ic_help_black_24dp"
             android:title="@string/menu_rules" />
+        <item
+            android:id="@+id/menu_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/menu_settings" />
 
     </group>
 

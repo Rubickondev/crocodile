@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.dev.rubickon.crocodile.R;
@@ -24,10 +25,8 @@ import butterknife.ButterKnife;
 public class PhraseActivity extends BaseActivity implements CommonListView<Phrase>{
 
 
-    @BindView(R.id.recyclerView)
-    EmptyRecyclerView mRecyclerView;
-    @BindView(R.id.empty)
-    View mEmptyView;
+    @BindView(R.id.recyclerView) EmptyRecyclerView mRecyclerView;
+    @BindView(R.id.empty) View mEmptyView;
 
     private CommonAdapter<Phrase> mAdapter;
     private PhrasePresenter presenter;
@@ -36,8 +35,14 @@ public class PhraseActivity extends BaseActivity implements CommonListView<Phras
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrase);
+        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.activity_content);
+        getLayoutInflater().inflate(R.layout.activity_phrase, contentFrameLayout);
         ButterKnife.bind(this);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            mToolbar.setNavigationOnClickListener(v -> onBackPressed());
+        }
         presenter = new PhrasePresenter(this);
         initRecycler();
         String level = getIntent().getStringExtra(Constants.LEVEL_EXTRAS);

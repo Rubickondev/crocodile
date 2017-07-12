@@ -8,21 +8,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/primary_dark"
     android:layout_width="match_parent"
-    android:layout_height="164dp"
+    android:layout_height="@dimen/appbar_size"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:src="@drawable/logocroc"
-        android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
-        android:layout_height="0dp" />
+        android:layout_width="@dimen/logo_size"
+        android:layout_height="@dimen/logo_size" />
     <TextView
-        android:id="@+id/tv_main_title"
+        android:id="@+id/tv_nav_title"
         android:text="@string/app_name_ru"
         android:textColor="@color/icons"
-        android:textSize="@dimen/text.22"
+        android:textSize="@dimen/text.24"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/card_items_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
