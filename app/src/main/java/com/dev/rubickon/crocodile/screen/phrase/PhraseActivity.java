@@ -42,11 +42,7 @@ public class PhraseActivity extends BaseActivity implements CommonListView<Phras
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.activity_content);
         getLayoutInflater().inflate(R.layout.activity_phrase, contentFrameLayout);
         ButterKnife.bind(this);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            mToolbar.setNavigationOnClickListener(v -> onBackPressed());
-        }
+        setParentBackArrow();
         mLoadingView = LoadingDialog.view(getSupportFragmentManager());
         presenter = new PhrasePresenter(this);
         initRecycler();

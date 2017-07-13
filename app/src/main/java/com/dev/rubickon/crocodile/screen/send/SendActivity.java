@@ -34,11 +34,8 @@ public class SendActivity extends BaseActivity implements SendView{
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.activity_content);
         getLayoutInflater().inflate(R.layout.activity_send, contentFrameLayout);
         ButterKnife.bind(this);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            mToolbar.setNavigationOnClickListener(v -> onBackPressed());
-        }
+        setActionBarTitle(getResources().getString(R.string.menu_send));
+        setParentBackArrow();
         presenter = new SendPresenter(this);
     }
 

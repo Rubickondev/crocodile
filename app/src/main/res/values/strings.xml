@@ -6,6 +6,7 @@
     <string name="rate">Рейтинг</string>
     <string name="button_level">Результат</string>
 
+    <!--total-->
     <string name="some_error">Ошибка!!!</string>
     <string name="empty_response">Ничего нет</string>
     <string name="loading">Загрузка</string>
@@ -48,8 +49,7 @@
     <string name="btn_success_response">Отлично</string>
     <string name="msg_success_response">Ваше предложение было принято на рассмотрение</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- End Activity Send  -->
 
 
 </resources>

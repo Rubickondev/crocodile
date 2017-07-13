@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,17 +12,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.style.TypefaceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.dev.rubickon.crocodile.R;
 import com.dev.rubickon.crocodile.screen.send.SendActivity;
@@ -127,6 +122,14 @@ public class BaseActivity extends AppCompatActivity {
             s.setSpan(new CustomTypefaceSpan(font), 0, s.length(),
                     Spannable.SPAN_INCLUSIVE_INCLUSIVE);
             bar.setTitle(s);
+        }
+    }
+
+    protected void setParentBackArrow() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            mToolbar.setNavigationOnClickListener(v -> onBackPressed());
         }
     }
 

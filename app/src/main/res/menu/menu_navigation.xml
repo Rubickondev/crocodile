@@ -4,6 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_single_play"
+            android:icon="@drawable/ic_australian_alligator"
             android:title="@string/menu_single_play" />
         <item
             android:id="@+id/menu_time_play"
