@@ -1,7 +1,9 @@
 package com.dev.rubickon.crocodile.screen;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,9 +22,11 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.dev.rubickon.crocodile.R;
+import com.dev.rubickon.crocodile.screen.send.SendActivity;
 import com.dev.rubickon.crocodile.utils.CustomTypefaceSpan;
 
 /**
@@ -34,6 +38,8 @@ public class BaseActivity extends AppCompatActivity {
     protected DrawerLayout mDrawer;
     protected Toolbar mToolbar;
     protected NavigationView mNavigationView;
+
+    private Boolean doubleBackToExitPressedOnce = false;
 
 
     @Override
@@ -63,6 +69,11 @@ public class BaseActivity extends AppCompatActivity {
                 case R.id.menu_time_play:
 //                    Intent time = new Intent(getApplicationContext(), .class);
 //                    startActivity(time);
+                    mDrawer.closeDrawers();
+                    break;
+                case R.id.menu_send:
+                    Intent send = new Intent(getApplicationContext(), SendActivity.class);
+                    startActivity(send);
                     mDrawer.closeDrawers();
                     break;
                 case R.id.menu_settings:
@@ -107,7 +118,7 @@ public class BaseActivity extends AppCompatActivity {
         textView.setTypeface(font);
     }
 
-    protected void setActionBarTitle(String title){
+    protected void setActionBarTitle(String title) {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
             ActionBar bar = getSupportActionBar();
@@ -126,10 +137,17 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, getResources().getString(R.string.double_back_exit), Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 6 * 100);
     }
 
 
-    private void setFontToMenu(Menu m){
+    private void setFontToMenu(Menu m) {
         for (int i = 0; i < m.size(); i++) {
             MenuItem mi = m.getItem(i);
             SubMenu subMenu = mi.getSubMenu();
@@ -143,14 +161,13 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void setFontToMenuItem(MenuItem item){
+    private void setFontToMenuItem(MenuItem item) {
         Typeface font = Typeface.createFromAsset(getAssets(), getResources().getString(R.string.font_default));
         SpannableStringBuilder s = new SpannableStringBuilder(item.getTitle());
         s.setSpan(new CustomTypefaceSpan(font), 0, s.length(),
                 Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         item.setTitle(s);
     }
-
 
 
 }

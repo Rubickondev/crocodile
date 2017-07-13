@@ -10,4 +10,6 @@ public final class Constants {
 
     public static final String LEVEL_EXTRAS = "level";
 
+    public static final String DIALOG_KEY = "send_response";
+
 }

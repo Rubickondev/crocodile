@@ -26,8 +26,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".screen.MainActivity" />
         </activity>
-
-
         <activity
             android:name=".screen.SplashScreenActivity"
             android:theme="@style/SplashTheme">
@@ -37,6 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".screen.send.SendActivity"></activity>
     </application>
 
 </manifest>

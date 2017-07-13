@@ -12,6 +12,8 @@ import com.dev.rubickon.crocodile.model.Phrase;
 import com.dev.rubickon.crocodile.screen.BaseActivity;
 import com.dev.rubickon.crocodile.screen.common.CommonAdapter;
 import com.dev.rubickon.crocodile.screen.common.CommonListView;
+import com.dev.rubickon.crocodile.screen.common.LoadingDialog;
+import com.dev.rubickon.crocodile.screen.common.LoadingView;
 import com.dev.rubickon.crocodile.utils.Constants;
 import com.dev.rubickon.crocodile.utils.DividerItemDecoration;
 import com.dev.rubickon.crocodile.utils.EmptyRecyclerView;
@@ -21,6 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.disposables.Disposable;
 
 public class PhraseActivity extends BaseActivity implements CommonListView<Phrase>{
 
@@ -29,6 +32,7 @@ public class PhraseActivity extends BaseActivity implements CommonListView<Phras
     @BindView(R.id.empty) View mEmptyView;
 
     private CommonAdapter<Phrase> mAdapter;
+    private LoadingView mLoadingView;
     private PhrasePresenter presenter;
 
 
@@ -43,6 +47,7 @@ public class PhraseActivity extends BaseActivity implements CommonListView<Phras
             getSupportActionBar().setDisplayShowHomeEnabled(true);
             mToolbar.setNavigationOnClickListener(v -> onBackPressed());
         }
+        mLoadingView = LoadingDialog.view(getSupportFragmentManager());
         presenter = new PhrasePresenter(this);
         initRecycler();
         String level = getIntent().getStringExtra(Constants.LEVEL_EXTRAS);
@@ -80,4 +85,13 @@ public class PhraseActivity extends BaseActivity implements CommonListView<Phras
     }
 
 
+    @Override
+    public void hideLoading() {
+        mLoadingView.hideLoading();
+    }
+
+    @Override
+    public void showLoading(Disposable disposable) {
+        mLoadingView.showLoading(disposable);
+    }
 }

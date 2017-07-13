@@ -8,6 +8,8 @@
 
     <string name="some_error">Ошибка!!!</string>
     <string name="empty_response">Ничего нет</string>
+    <string name="loading">Загрузка</string>
+    <string name="double_back_exit">Нажмите еще раз для выхода</string>
     <string name="empty"></string>
 
     <!--menu-->
@@ -37,5 +39,17 @@
     <string name="level_hard">3</string>
 
     <!-- End Activity Main  -->
+
+    <!--Activity Send-->
+    <string name="tv_send_title">Введите Ваше предложение в поле ниже и мы добавим его как можно скорее!</string>
+    <string name="send_phrases">Новое слово или фраза</string>
+    <string name="btn_send">Отправить</string>
+    <string name="tv_radio_title">Предполагаемая сложность</string>
+    <string name="btn_success_response">Отлично</string>
+    <string name="msg_success_response">Ваше предложение было принято на рассмотрение</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

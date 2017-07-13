@@ -8,7 +8,7 @@ import java.util.List;
  * Created by DNS1 on 27.05.2017.
  */
 
-public interface CommonListView<T> {
+public interface CommonListView<T> extends LoadingView{
 
     void showItems(@NonNull List<T> items);
 

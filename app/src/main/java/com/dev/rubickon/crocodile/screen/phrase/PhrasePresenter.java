@@ -10,9 +10,7 @@ import com.dev.rubickon.crocodile.screen.common.CommonListView;
 
 public class PhrasePresenter {
 
-
     private final CommonListView<Phrase> mView;
-
 
 
     public PhrasePresenter(CommonListView<Phrase> mView) {
@@ -20,11 +18,12 @@ public class PhrasePresenter {
     }
 
 
-
     public void init(String level) {
         RepositoryProvider.providePhraseRepository()
                 .phrases(level)
-                .subscribe(mView::showItems, throwable -> mView.showError(throwable));
+                .doOnSubscribe(mView::showLoading)
+                .doOnTerminate(mView::hideLoading)
+                .subscribe(mView::showItems, mView::showError);
     }
 
 }
