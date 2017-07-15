@@ -3,7 +3,6 @@ package com.dev.rubickon.crocodile.screen;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,10 +17,10 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dev.rubickon.crocodile.R;
 import com.dev.rubickon.crocodile.screen.send.SendActivity;
+import com.dev.rubickon.crocodile.screen.settings.SettingsActivity;
 import com.dev.rubickon.crocodile.utils.CustomTypefaceSpan;
 
 /**
@@ -34,7 +33,7 @@ public class BaseActivity extends AppCompatActivity {
     protected Toolbar mToolbar;
     protected NavigationView mNavigationView;
 
-    private Boolean doubleBackToExitPressedOnce = false;
+
 
 
     @Override
@@ -72,8 +71,8 @@ public class BaseActivity extends AppCompatActivity {
                     mDrawer.closeDrawers();
                     break;
                 case R.id.menu_settings:
-//                    Intent settings = new Intent(getApplicationContext(), .class);
-//                    startActivity(settings);
+                    Intent settings = new Intent(getApplicationContext(), SettingsActivity.class);
+                    startActivity(settings);
                     mDrawer.closeDrawers();
                     break;
                 case R.id.menu_rules:
@@ -140,13 +139,6 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, getResources().getString(R.string.double_back_exit), Toast.LENGTH_SHORT).show();
-        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 6 * 100);
     }
 
 

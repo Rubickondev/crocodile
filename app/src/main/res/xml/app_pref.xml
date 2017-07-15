@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <android.support.v7.preference.PreferenceCategory android:title="@string/time_title">
+
+
+        <android.support.v7.preference.ListPreference
+            android:key="pref_time"
+            android:title="@string/time_title"
+            android:summary="@string/time_list_summary"
+            android:dialogTitle="@string/time_title"
+            android:entries="@array/time_list_array"
+            android:entryValues="@array/time_list_values"
+            android:defaultValue="@string/default_time" />
+
+        <android.support.v7.preference.EditTextPreference
+            android:key="et_pref_time"
+            android:dialogLayout="@layout/pref_dialog_edittext_fix"
+            android:title="@string/time_title"
+            android:summary="@string/time_summary"
+            android:dialogMessage="@string/time_message"
+            android:defaultValue="@string/default_time" />
+
+    </android.support.v7.preference.PreferenceCategory>
+</android.support.v7.preference.PreferenceScreen>
